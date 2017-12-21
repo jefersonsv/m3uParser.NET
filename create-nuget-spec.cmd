@@ -1,0 +1,1 @@
+nuget spec .\src\m3uParser\bin\Release\m3uParser.dll -force

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace m3uParser.Test {
+namespace m3uParser.Tests {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace m3uParser.Test {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("m3uParser.Test.Sample", typeof(Sample).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("m3uParser.Tests.Sample", typeof(Sample).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

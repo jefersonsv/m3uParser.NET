@@ -2,13 +2,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text;
 
-namespace m3uParser.Test
+namespace m3uParser.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class SimpleTests
     {
         [TestMethod]
-        public void SimpleTest()
+        public void SimpleParseTest()
         {
             var m3u = M3U.ParseBytes(Sample.simple_vod_playlist);
         }

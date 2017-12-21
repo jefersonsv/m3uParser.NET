@@ -7,8 +7,8 @@
     <ProjectGuid>{8A14FB47-E478-4622-B2F3-325A2CB964CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>m3uParser.Test</RootNamespace>
-    <AssemblyName>m3uParser.Test</AssemblyName>
+    <RootNamespace>m3uParser.Tests</RootNamespace>
+    <AssemblyName>m3uParser.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -53,7 +53,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Sample.resx</DependentUpon>
     </Compile>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="SimpleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
