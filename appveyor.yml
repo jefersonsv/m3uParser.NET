@@ -1,0 +1,36 @@
+image: Visual Studio 2017
+
+branches:
+  only:
+    - master
+
+skip_commits:
+  files:
+    - '**/*.md'
+
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+
+build:
+  verbosity: detailed
+  publish_nuget: true
+ 
+before_build:
+  - nuget restore
+ 
+nuget:
+  account_feed: true
+  project_feed: true
+ 
+deploy:
+  provider: NuGet
+  api_key:
+    secure: El3Kj0SEU9/+Di2uXiCsTGlDWSjPcqXyO2drOT3XDGOp3rMdIX8zeXOBZLlOCQZw
+  skip_symbols: false
+  artifact: /.*\.nupkg/

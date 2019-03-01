@@ -14,13 +14,19 @@ namespace m3uParser
     /// </summary>
     public class AttributeInfo
     {
+        public AttributeInfo() { }
+        public AttributeInfo(IEnumerable<KeyValuePair<string, string>> attributes)
+        {
+            this.Attributes = attributes;
+        }
+
         public IEnumerable<KeyValuePair<string, string>> Attributes { get; set; }
-        public string GroupTitle { get { return this.Attributes.FirstOrDefault(w => w.Key.ToLower().Trim() == "group-title").Value; } }
-        public string GuideTimeShiftingTV { get { return this.Attributes.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-shift").Value; } }
-        public string GuideIdentifierTV { get { return this.Attributes.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-name").Value; } }
-        public string Logo { get { return this.Attributes.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-logo").Value; } }
-        public string AudioTrack { get { return this.Attributes.FirstOrDefault(w => w.Key.ToLower().Trim() == "audio-track").Value; } }
-        public string AspectRatio { get { return this.Attributes.FirstOrDefault(w => w.Key.ToLower().Trim() == "aspect-ratio").Value; } }
-        public string Id { get { return this.Attributes.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-id").Value; } }
+        public string GroupTitle { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "group-title").Value; } }
+        public string GuideTimeShiftingTV { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-shift").Value; } }
+        public string GuideIdentifierTV { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-name").Value; } }
+        public string Logo { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-logo").Value; } }
+        public string AudioTrack { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "audio-track").Value; } }
+        public string AspectRatio { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "aspect-ratio").Value; } }
+        public string Id { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-id").Value; } }
     }
 }

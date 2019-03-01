@@ -1,0 +1,7 @@
+﻿#EXTM3U url-tvg="http://www.teleguide.info/download/new3/jtv.zip" m3uautoload=1 cache=500 deinterlace=1 tvg-shift=0
+#EXTINF:-1 tvgname="Первый_канал" tvglogo="Первый канал" grouptitle="Каналы ЦЭТВ РТРС" ,Первый канал
+http://192.168.1.1:4022/udp/225.77.225.1:5000
+#EXTINF:-1 tvg-name="Россия_1" tvg-logo="Россия" ,Россия
+http://192.168.1.1:4022/udp/225.77.225.2:5000
+#EXTINF:-1 tvg-name="Матч!" tvg-logo="Матч ТВ" ,Матч ТВ
+http://192.168.1.1:4022/udp/225.77.225.3:5000

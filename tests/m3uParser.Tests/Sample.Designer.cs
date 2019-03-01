@@ -61,6 +61,21 @@ namespace m3uParser.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #EXTM3U url-tvg=&quot;http://www.teleguide.info/download/new3/jtv.zip&quot; m3uautoload=1 cache=500 deinterlace=1 tvg-shift=0
+        ///#EXTINF:-1 tvgname=&quot;Первый_канал&quot; tvglogo=&quot;Первый канал&quot; grouptitle=&quot;Каналы ЦЭТВ РТРС&quot; ,Первый канал
+        ///http://192.168.1.1:4022/udp/225.77.225.1:5000
+        ///#EXTINF:-1 tvg-name=&quot;Россия_1&quot; tvg-logo=&quot;Россия&quot; ,Россия
+        ///http://192.168.1.1:4022/udp/225.77.225.2:5000
+        ///#EXTINF:-1 tvg-name=&quot;Матч!&quot; tvg-logo=&quot;Матч ТВ&quot; ,Матч ТВ
+        ///http://192.168.1.1:4022/udp/225.77.225.3:5000.
+        /// </summary>
+        internal static string header_with_parameters {
+            get {
+                return ResourceManager.GetString("header_with_parameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] simple_vod_playlist {
