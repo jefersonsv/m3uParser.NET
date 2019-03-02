@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text;
 using Sprache;
+using System.Linq;
 
 namespace m3uParser.Tests
 {
@@ -9,9 +10,18 @@ namespace m3uParser.Tests
     public class SimpleTests
     {
         [TestMethod]
+        public void InfoSetTest()
+        {
+            var a1 = GenericSpecification.InfoSetCollection.Parse(Sample.simple_vod);
+            var a2 = GenericSpecification.InfoSetCollection.Parse(Sample.header_with_parameters);
+
+            a1.ToList().ForEach(a => Console.WriteLine(a));
+        }
+
+        [TestMethod]
         public void SimpleParseTest()
         {
-            var m3u = M3U.ParseBytes(Sample.simple_vod_playlist);
+            var m3u = M3U.ParseText(Sample.simple_vod);
         }
 
         [TestMethod]

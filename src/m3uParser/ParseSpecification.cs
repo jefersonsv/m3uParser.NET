@@ -1,4 +1,5 @@
-﻿using Sprache;
+﻿using m3uParser.Model;
+using Sprache;
 
 using System;
 using System.Collections.Generic;
@@ -82,5 +83,21 @@ namespace m3uParser
                 from blankLine in Parse.String(Environment.NewLine).Optional()
                 from info in LinesSpecification.Extinf.AtLeastOnce()
                 select new Root(string.Empty, info, new AttributeInfo(header));
+    }
+
+    public static class GenericSpecification
+    {
+        public static readonly Parser<InfoSet> InfoSet =
+                from header in Parse.Chars(new char[] { '\r', '\n', '#' }).Once()
+                from content in Parse.CharExcept(new char[] { '#' }).Many().Text()
+                select new InfoSet(string.Concat(content));
+
+        public static readonly Parser<IEnumerable<InfoSet>> InfoSetCollection =
+                from collection in InfoSet.Many()
+                select collection;
+
+        public static readonly Parser<Extm3u> Init =
+                from collection in InfoSet.Many()
+                select new Extm3u();
     }
 }

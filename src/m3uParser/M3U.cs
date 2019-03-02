@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace m3uParser
 {
+    /// <summary>
+    /// https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming/event_playlist_construction
+    /// https://tools.ietf.org/html/draft-pantos-http-live-streaming-23#page-12
+    /// </summary>
     public static class M3U
     {
         public static Root ParseText(string text)

@@ -76,12 +76,24 @@ namespace m3uParser.Tests {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to #EXTM3U
+        ///#EXT-X-PLAYLIST-TYPE:VOD
+        ///#EXT-X-TARGETDURATION:10
+        ///#EXT-X-VERSION:3
+        ///#EXT-X-MEDIA-SEQUENCE:0
+        ///#EXTINF:10.0,
+        ///http://example.com/movie1/fileSequenceA.ts
+        ///#EXTINF:10.0,
+        ///http://example.com/movie1/fileSequenceB.ts
+        ///#EXTINF:10.0,
+        ///http://example.com/movie1/fileSequenceC.ts
+        ///#EXTINF:9.0,
+        ///http://example.com/movie1/fileSequenceD.ts
+        ///#EXT-X-ENDLIST.
         /// </summary>
-        internal static byte[] simple_vod_playlist {
+        internal static string simple_vod {
             get {
-                object obj = ResourceManager.GetObject("simple_vod_playlist", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("simple_vod", resourceCulture);
             }
         }
     }

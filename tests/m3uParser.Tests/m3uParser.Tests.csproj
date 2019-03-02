@@ -71,7 +71,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="simple-vod.txt" />
+    <None Include="Resources\simple_vod.txt" />
     <None Include="Resources\header-with-parameters.txt" />
+    <Content Include="header-parameter.txt" />
     <Content Include="Resources\simple-vod-playlist.m3u" />
   </ItemGroup>
   <ItemGroup>
