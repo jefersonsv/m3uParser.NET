@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>m3uParser.NET</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Jeferson Tenorio</Authors>
     <Description>A dotnet parser for M3U file format</Description>
     <PackageLicenseUrl>http://choosealicense.com/licenses/mit/</PackageLicenseUrl>
