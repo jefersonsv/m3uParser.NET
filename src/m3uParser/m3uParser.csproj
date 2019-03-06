@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>m3uParser</PackageId>
+    <PackageId>m3uParser.NET</PackageId>
     <Version>1.0.2</Version>
     <Authors>Jeferson Tenorio</Authors>
     <Description>A dotnet parser for M3U file format</Description>
@@ -12,6 +12,7 @@
     <PackageIconUrl>https://github.com/jefersonsv/m3uParser/raw/master/logo.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/jefersonsv/m3uParser</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
+    <Product>m3uParser.NET</Product>
   </PropertyGroup>
 
   <ItemGroup>
