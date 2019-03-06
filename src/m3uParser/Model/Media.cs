@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Sprache;
 
 namespace m3uParser
 {
@@ -14,15 +15,24 @@ namespace m3uParser
 
         public bool IsStream { get { return this.Duration <= 0; } }
 
-        public AttributeInfo AttributeInfo { get; set; }
+        public Attributes Attributes { get; set; }
+
+        internal Media(string source)
+        {
+            var media = LinesSpecification.Extinf.Parse(source);
+
+            this.Duration = media.Duration;
+            this.Title = media.Title;
+            this.MediaFile = media.MediaFile;
+            this.Attributes = media.Attributes;
+        }
 
         internal Media(decimal duration, IEnumerable<KeyValuePair<string, string>> attributes, Title title, string mediafile)
         {
-            AttributeInfo = new AttributeInfo();
             Duration = duration;
             Title = title;
             MediaFile = mediafile;
-            AttributeInfo.Attributes = attributes;
+            Attributes = new Attributes(attributes);
         }
     }
 }

@@ -5,28 +5,27 @@ using System.Text;
 
 namespace m3uParser
 {
-    /// <summary>
-    /// https://en.wikipedia.org/wiki/M3U
-    /// https://github.com/sprache/Sprache
-    /// https://tools.ietf.org/html/draft-pantos-http-live-streaming-23#section-4.2
-    /// http://ss-iptv.com/en/users/documents/m3u
-    /// https://developer.apple.com/library/content/technotes/tn2288/_index.html
-    /// </summary>
-    public class AttributeInfo
+    public class Attributes
     {
-        public AttributeInfo() { }
-        public AttributeInfo(IEnumerable<KeyValuePair<string, string>> attributes)
+        internal Attributes(IEnumerable<KeyValuePair<string, string>> attributes)
         {
-            this.Attributes = attributes;
+            this.AttributeList = attributes;
+            this.GroupTitle = this.AttributeList.FirstOrDefault(w => w.Key.ToLower().Replace("-", string.Empty) == "grouptitle").Value;
+            this.GuideTimeShiftingTV = this.AttributeList.FirstOrDefault(w => w.Key.ToLower().Replace("-", string.Empty) == "tvgshift").Value;
+            this.GuideIdentifierTV = this.AttributeList.FirstOrDefault(w => w.Key.ToLower().Replace("-", string.Empty) == "tvgname").Value;
+            this.Logo = this.AttributeList.FirstOrDefault(w => w.Key.ToLower().Replace("-", string.Empty) == "tvglogo").Value;
+            this.AudioTrack = this.AttributeList.FirstOrDefault(w => w.Key.ToLower().Replace("-", string.Empty) == "audiotrack").Value;
+            this.AspectRatio = this.AttributeList.FirstOrDefault(w => w.Key.ToLower().Replace("-", string.Empty) == "aspectratio").Value;
+            this.Id = this.AttributeList.FirstOrDefault(w => w.Key.ToLower().Replace("-", string.Empty) == "tvgid").Value;
         }
 
-        public IEnumerable<KeyValuePair<string, string>> Attributes { get; set; }
-        public string GroupTitle { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "group-title").Value; } }
-        public string GuideTimeShiftingTV { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-shift").Value; } }
-        public string GuideIdentifierTV { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-name").Value; } }
-        public string Logo { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-logo").Value; } }
-        public string AudioTrack { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "audio-track").Value; } }
-        public string AspectRatio { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "aspect-ratio").Value; } }
-        public string Id { get { return this.Attributes?.FirstOrDefault(w => w.Key.ToLower().Trim() == "tvg-id").Value; } }
+        public IEnumerable<KeyValuePair<string, string>> AttributeList { get; private set; }
+        public string GroupTitle { get; private set; }
+        public string GuideTimeShiftingTV { get; private set; }
+        public string GuideIdentifierTV { get; private set; }
+        public string Logo { get; private set; }
+        public string AudioTrack { get; private set; }
+        public string AspectRatio { get; private set; }
+        public string Id { get; private set; }
     }
 }

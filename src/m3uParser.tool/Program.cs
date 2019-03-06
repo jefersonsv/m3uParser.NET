@@ -15,13 +15,31 @@ namespace m3uParser.tool
     {
         static void Main(string[] args)
         {
-            var a1 = GenericSpecification.InfoSetCollection.Parse(simpleVod);
-            var a2 = GenericSpecification.InfoSetCollection.Parse(headerParameter);
+            var simpleVodM3u = M3U.Parse(simpleVod);
+            var headerParameterM3u = M3U.Parse(headerParameter);
 
-            a1.ToList().ForEach(a => Console.WriteLine(a));
+            var urls = new List<string>();
+            urls.Add("https://pastebin.com/raw/gavXcCcQ");
+            urls.Add("http://bit.ly/2F3aZVH");
+            urls.Add("http://bit.ly/despotes455");
+            urls.Add("http://bit.ly/pastebintvaaa");
+            urls.Add("http://bit.ly/googletv55");
+            urls.Add("http://bit.ly/graduelas55");
+            urls.Add("http://bit.ly/srvista");
+            urls.Add("http://bit.ly/tpiptv456");
+            urls.Add("http://bit.ly/extraiptv85");
+            urls.Add("http://bit.ly/gstatic85");
+            urls.Add("http://bit.ly/listaiptvtv58");
+            urls.Add("http://bit.ly/iptvstreaming56");
 
-            Extm3u m = new Extm3u();
-            
+            var lists = new List<Extm3u>();
+            urls.ToList().ForEach(a => {
+                try
+                {
+                    lists.Add(M3U.ParseFromUrlAsync(a).Result);
+                }
+                catch { }
+            });
         }
 
         static readonly string simpleVod = @"#EXTM3U
@@ -29,7 +47,7 @@ namespace m3uParser.tool
 #EXT-X-TARGETDURATION:10
 #EXT-X-VERSION:3
 
-
+##COMMENT
 
 #EXT-X-MEDIA-SEQUENCE:0
 #EXTINF:10.0,

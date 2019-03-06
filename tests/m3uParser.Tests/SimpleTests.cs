@@ -12,8 +12,8 @@ namespace m3uParser.Tests
         [TestMethod]
         public void InfoSetTest()
         {
-            var a1 = GenericSpecification.InfoSetCollection.Parse(Sample.simple_vod);
-            var a2 = GenericSpecification.InfoSetCollection.Parse(Sample.header_with_parameters);
+            var a1 = SegmentSpecification.SegmentCollection.Parse(Sample.simple_vod);
+            var a2 = SegmentSpecification.SegmentCollection.Parse(Sample.header_with_parameters);
 
             a1.ToList().ForEach(a => Console.WriteLine(a));
         }
@@ -21,20 +21,20 @@ namespace m3uParser.Tests
         [TestMethod]
         public void SimpleParseTest()
         {
-            var m3u = M3U.ParseText(Sample.simple_vod);
+            var m3u = M3U.Parse(Sample.simple_vod);
         }
 
         [TestMethod]
         public void HeaderWithParametersTest()
         {
-            var m3u = M3U.ParseText(Sample.header_with_parameters);
+            var m3u = M3U.Parse(Sample.header_with_parameters);
         }
 
         [TestMethod]
         public void ExtinfTest()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(@"#EXTINF:-1 tvgname=""Первый_канал"" tvglogo=""Первый канал"" grouptitle=""Каналы ЦЭТВ РТРС"" ,Первый канал");
+            sb.AppendLine(@"-1 tvgname=""Первый_канал"" tvglogo=""Первый канал"" grouptitle=""Каналы ЦЭТВ РТРС"" ,Первый канал");
             sb.AppendLine("http://192.168.1.1:4022/udp/225.77.225.2:5000");
             var res = LinesSpecification.Extinf.Parse(sb.ToString());
         }
@@ -42,7 +42,7 @@ namespace m3uParser.Tests
         [TestMethod]
         public void ExtinfFirstLineTest()
         {
-            var line = @"#EXTINF:-1 tvgname=""Первый_канал"" tvglogo=""Первый канал"" grouptitle=""Каналы ЦЭТВ РТРС"" ,Первый канал";
+            var line = @"-1 tvgname=""Первый_канал"" tvglogo=""Первый канал"" grouptitle=""Каналы ЦЭТВ РТРС"" ,Первый канал";
             var res = LinesSpecification.ExtinfFirstLine.Parse(line);
         }
 

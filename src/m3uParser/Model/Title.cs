@@ -9,7 +9,7 @@ namespace m3uParser
         public string RawTitle { get; set; }
         public string InnerTitle { get; set; }
 
-        public Title(string title, string innerTitle)
+        internal Title(string title, string innerTitle)
         {
             RawTitle = title;
             InnerTitle = innerTitle;

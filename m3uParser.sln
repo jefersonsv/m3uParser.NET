@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{19BA96D9-4DB8-4361-A592-EEBD390650D6}"
 EndProject
@@ -20,14 +20,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{9A4065E4-8C28-4C36-8546-C4C8460B116A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "buildtools", "buildtools", "{9A4065E4-8C28-4C36-8546-C4C8460B116A}"
 	ProjectSection(SolutionItems) = preProject
-		tools\packages.config = tools\packages.config
+		buildtools\packages.config = buildtools\packages.config
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "m3uParser.Tests", "tests\m3uParser.Tests\m3uParser.Tests.csproj", "{8A14FB47-E478-4622-B2F3-325A2CB964CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "m3uParser", "src\m3uParser\m3uParser.csproj", "{7FEB1DF7-D1EC-4682-A9CC-41771D73084D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "m3uParser", "src\m3uParser\m3uParser.csproj", "{7FEB1DF7-D1EC-4682-A9CC-41771D73084D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
