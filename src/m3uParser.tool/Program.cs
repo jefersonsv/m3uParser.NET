@@ -15,31 +15,8 @@ namespace m3uParser.tool
     {
         static void Main(string[] args)
         {
-            var simpleVodM3u = M3U.Parse(simpleVod);
+            var simpleVodM3u = M3U.ParseFromFile(simpleVod);
             var headerParameterM3u = M3U.Parse(headerParameter);
-
-            var urls = new List<string>();
-            urls.Add("https://pastebin.com/raw/gavXcCcQ");
-            urls.Add("http://bit.ly/2F3aZVH");
-            urls.Add("http://bit.ly/despotes455");
-            urls.Add("http://bit.ly/pastebintvaaa");
-            urls.Add("http://bit.ly/googletv55");
-            urls.Add("http://bit.ly/graduelas55");
-            urls.Add("http://bit.ly/srvista");
-            urls.Add("http://bit.ly/tpiptv456");
-            urls.Add("http://bit.ly/extraiptv85");
-            urls.Add("http://bit.ly/gstatic85");
-            urls.Add("http://bit.ly/listaiptvtv58");
-            urls.Add("http://bit.ly/iptvstreaming56");
-
-            var lists = new List<Extm3u>();
-            urls.ToList().ForEach(a => {
-                try
-                {
-                    lists.Add(M3U.ParseFromUrlAsync(a).Result);
-                }
-                catch { }
-            });
         }
 
         static readonly string simpleVod = @"#EXTM3U
