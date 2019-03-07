@@ -10,7 +10,6 @@ skip_commits:
     
 configuration:
   - Release
-git pus
 
 dotnet_csproj:
   patch: true
