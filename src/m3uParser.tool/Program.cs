@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,6 +16,8 @@ namespace m3uParser.tool
     {
         static void Main(string[] args)
         {
+            //var customFile = Path.Combine(@"C:\Data\Desktop", "test.m3u");
+            //var customM3u = M3U.ParseFromFile(customFile);
             var simpleVodM3u = M3U.ParseFromFile(simpleVod);
             var headerParameterM3u = M3U.Parse(headerParameter);
         }
