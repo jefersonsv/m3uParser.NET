@@ -54,8 +54,9 @@ namespace m3uParser
             from starting in Parse.String("#").Text()
             from key in PrimitiveSpecification.TagString.Token()
             from div in Parse.String(":").Text().Optional()
-            from value in Parse.CharExcept(Environment.NewLine).Many()
-            from end in Parse.Chars(Environment.NewLine).Optional()
+            from value in Parse.AnyChar.Many()
+            //from value in Parse.Chars((Environment.NewLine).Many()
+            //from end in Parse.Chars(Environment.NewLine).Optional()
             select new KeyValuePair<string, string>(key.ToUpper().Trim(), string.Concat(value));
     }
 
@@ -85,7 +86,7 @@ namespace m3uParser
             from first in LinesSpecification.ExtinfFirstLine.Token()
             from media in Parse.CharExcept(Environment.NewLine).Many().Text()
             from ignore in Parse.CharExcept('#').Many()
-            select new Media(first.Duration, first.Attributes.AttributeList, first.Title, first.MediaFile);
+            select new Media(first.Duration, first.Attributes.AttributeList, first.Title, media);
     }
 
     //internal static class ParseSpecification
