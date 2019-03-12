@@ -37,6 +37,13 @@ namespace m3uParser.Tests
             sb.AppendLine(@"-1 tvgname=""Первый_канал"" tvglogo=""Первый канал"" grouptitle=""Каналы ЦЭТВ РТРС"" ,Первый канал");
             sb.AppendLine("http://192.168.1.1:4022/udp/225.77.225.2:5000");
             var res = LinesSpecification.Extinf.Parse(sb.ToString());
+
+            Assert.AreEqual(res.MediaFile, "http://192.168.1.1:4022/udp/225.77.225.2:5000");
+            Assert.AreEqual(res.Duration, -1);
+            Assert.AreEqual(res.IsStream, true);
+            Assert.AreEqual(res.Title.InnerTitle, "Первый канал");
+            Assert.AreEqual(res.Title.RawTitle, "Первый канал");
+            Assert.AreEqual(res.Attributes.Logo, "Первый канал");
         }
 
         [TestMethod]
