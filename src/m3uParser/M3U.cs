@@ -18,6 +18,9 @@ namespace m3uParser
     /// https://developer.apple.com/library/content/technotes/tn2288/_index.html
     /// https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming/event_playlist_construction
     /// https://tools.ietf.org/html/draft-pantos-http-live-streaming-23#page-12
+    /// https://wiki.tvip.ru/en/m3u
+    /// https://pastebin.com/KNYEZNun
+    /// https://github.com/AlexanderSofronov/iptv.example
     /// </summary>
     public static class M3U
     {

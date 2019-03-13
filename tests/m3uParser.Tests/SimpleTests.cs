@@ -19,15 +19,34 @@ namespace m3uParser.Tests
         }
 
         [TestMethod]
-        public void SimpleParseTest()
+        public void AllTests()
         {
-            var m3u = M3U.Parse(Sample.simple_vod);
+            var simple_vod = M3U.Parse(Sample.simple_vod);
+            Assert.AreEqual(simple_vod.PlayListType, "VOD");
+            Assert.AreEqual(simple_vod.Medias.Last().Duration, 9);
+
+            var format_specs = M3U.Parse(Sample.format_specs);
+            Assert.AreEqual(format_specs.Medias.Last().MediaFile, "udp://225.55.55.4:1234");
+            Assert.AreEqual(format_specs.Medias.Last().Title.RawTitle, "MTV");
+            
+            var sample_paste_bin = M3U.Parse(Sample.sample_paste_bin);
+            Assert.AreEqual(sample_paste_bin.Medias.ElementAt(10).Attributes.TvgLogo, "http://greektv.pbworks.com/f/ANT1.png");
+
+            var header_with_parameters = M3U.Parse(Sample.header_with_parameters);
+            Assert.AreEqual(header_with_parameters.Attributes.Cache, 500);
+
+            var iptv_sample = M3U.Parse(Sample.iptv_sample);
+            Assert.AreEqual(iptv_sample.Medias.ElementAt(2).Attributes.TvgShift, "+1");
+
+            var big_list = M3U.Parse(Sample.big_list);
+            Assert.AreEqual(big_list.Medias.Count(), 902);
         }
 
         [TestMethod]
         public void HeaderWithParametersTest()
         {
             var m3u = M3U.Parse(Sample.header_with_parameters);
+            Assert.AreEqual(m3u.Attributes.Cache, 500);
         }
 
         [TestMethod]

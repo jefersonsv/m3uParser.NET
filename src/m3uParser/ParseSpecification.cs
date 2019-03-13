@@ -57,7 +57,7 @@ namespace m3uParser
             from value in Parse.AnyChar.Many()
             //from value in Parse.Chars((Environment.NewLine).Many()
             //from end in Parse.Chars(Environment.NewLine).Optional()
-            select new KeyValuePair<string, string>(key.ToUpper().Trim(), string.Concat(value));
+            select new KeyValuePair<string, string>(key.ToUpper().Trim(), string.Concat(value).Trim());
     }
 
     internal static class LinesSpecification
@@ -73,13 +73,17 @@ namespace m3uParser
             //from open in Parse.String("#EXTINF:").Text()
             from duration in PrimitiveSpecification.DecimalSigned.Once()
             from param in PairsSpecification.Attributes.Token()
-            from space2 in Parse.Char(',').Optional()
-            from title in Title.Token()
-            select new Media(duration.First(), param, title, null);
+            from comma in Parse.Char(',')
+            from title in Title.Optional()
+            select new Media(duration.First(), param, title.GetOrDefault(), null);
 
         internal static readonly Parser<Title> Title =
-            from raw in Parse.CharExcept(Environment.NewLine).Many().Text()
-            select new Title(raw, raw);
+            from raw in Parse.CharExcept(Environment.NewLine).Many()
+                //from raw in Parse.AnyChar.Except(Environment.NewLine)
+                //from raw in Parse.AnyChar.Many().Text()
+
+                //from raw in Parse.AnyChar().Except(Environment.NewLine) //.Many()  Parse.CharExcept(Environment.NewLine).Many().Optional() //.Many().Text().Optional()
+            select new Title(raw.Any() ? string.Concat(raw) : null, raw.Any() ? string.Concat(raw) : null);
 
         // https://stackoverflow.com/questions/21414309/sprache-parse-signed-integer
         internal static readonly Parser<Media> Extinf =

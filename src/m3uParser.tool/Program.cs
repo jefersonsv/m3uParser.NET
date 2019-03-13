@@ -18,7 +18,7 @@ namespace m3uParser.tool
         {
             //var customFile = Path.Combine(@"C:\Data\Desktop", "test.m3u");
             //var customM3u = M3U.ParseFromFile(customFile);
-            var simpleVodM3u = M3U.ParseFromFile(simpleVod);
+            var simpleVodM3u = M3U.Parse(simpleVod);
             var headerParameterM3u = M3U.Parse(headerParameter);
         }
 

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Sprache;
 
 namespace m3uParser.Model
@@ -18,6 +20,10 @@ namespace m3uParser.Model
 
         internal Extm3u(string content)
         {
+            CultureInfo ci = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentCulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;
+
             var segments = SegmentSpecification.SegmentCollection.Parse(content);
 
             if (segments == null || segments.Count() == 0)
@@ -32,7 +38,7 @@ namespace m3uParser.Model
             else
             {
                 // parse attributes
-                Attributes = new Attributes(PairsSpecification.Attributes.Parse(segments.First()));
+                Attributes = new Attributes(LinesSpecification.HeaderLine.Parse(segments.First()));
             }
 
             IList<string> warnings = new List<string>();
@@ -61,14 +67,21 @@ namespace m3uParser.Model
                         break;
 
                     case "EXTINF":
-                        medias.Add(new Media(tag.Value));
+                        try
+                        {
+                            medias.Add(new Media(tag.Value));
+                        }
+                        catch
+                        {
+                            warnings.Add($"Can't parse media #{tag.Key}{(string.IsNullOrEmpty(tag.Value) ? string.Empty : ":")}{tag.Value}");
+                        }
                         break;
 
                     case "EXT-X-ENDLIST":
                         break;
 
                     default:
-                        warnings.Add($"The content #{tag.Key}{(string.IsNullOrEmpty(tag.Value) ? string.Empty : ":")}{tag.Value} cannot be parsed");
+                        warnings.Add($"Can't parse content #{tag.Key}{(string.IsNullOrEmpty(tag.Value) ? string.Empty : ":")}{tag.Value}");
 
                         break;
                 }

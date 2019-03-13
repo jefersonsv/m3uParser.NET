@@ -71,6 +71,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\format_specs.txt" />
+    <None Include="Resources\sample_paste_bin.txt" />
+    <None Include="Resources\iptv_sample.txt" />
+    <None Include="Resources\big_list.txt" />
     <Content Include="simple-vod.txt" />
     <None Include="Resources\simple_vod.txt" />
     <None Include="Resources\header-with-parameters.txt" />

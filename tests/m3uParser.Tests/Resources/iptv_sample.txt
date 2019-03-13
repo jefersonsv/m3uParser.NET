@@ -1,0 +1,9 @@
+#EXTM3U url-tvg="http://www.teleguide.info/download/new3/xmltv.xml.gz"
+#EXTINF:-1 group-title="Science", Discovery
+http://example.com/channel1
+#EXTINF:-1 group-title="Sport", Eurosport
+http://example.com/channel2
+#EXTINF:-1 tvg-logo="Eurosport" tvg-name="Eurosport" tvg-shift="+1",Eurosport +1
+http://example.com/channel3
+#EXTINF:-1 group-title="Custom" tvg-logo="https://cdn1.iconfinder.com/data/icons/Primo_Icons/PNG/128x128/video.png",My Custom channel
+http://example.com/channel4

@@ -61,6 +61,45 @@ namespace m3uParser.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #EXTM3U
+        ///#EXTINF:0,#EXTM3U 
+        ///#EXTINF:-1, [COLOR yellow]***FREE SKYNET TV*** [/COLOR]
+        ///#EXTINF:0,http://95.128.90.97:1232/udp/239.1.8.2:1232
+        ///#EXTINF:-1, [COLOR green]****Sky Sports**** [/COLOR]
+        ///#EXTINF:0,http://95.128.90.97:1234/udp/239.1.8.2:1234
+        ///http://937.48.118.32/live/skysports1.stream/playlist.m3u8
+        ///#EXTINF:0,#EXTINF:0, Sky Sports 1
+        ///http://9198.27.94.105/hls/skysports1.m3u8
+        ///#EXTINF:0,#EXTINF:0, Sky Sports 2
+        ///http://9198.27.94.105/hls/skysports2.m3u8
+        ///#EXTINF:0,http://937.48.118.32/live/skysports2. [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string big_list {
+            get {
+                return ResourceManager.GetString("big_list", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #EXTM3U url-tvg=&quot;http://server/jtv.zip&quot; refresh=&quot;3600&quot;
+        ///#EXTINF:-1 group-title=&quot;Free channels&quot;,Channel One
+        ///udp://225.55.55.1:1234
+        ///#EXTINF:-1 group-title=&quot;Free channels&quot;,Channel Two
+        ///udp://225.55.55.2:1234
+        ///#EXTINF:-1 group-title=&quot;Free channels&quot;,News Channel
+        ///udp://225.55.55.3:1234
+        ///#EXTINF:-1 group-title=&quot;Free channels&quot;,News 2 Channel
+        ///http://udpxy.domain.ru:5555/udp/225.55.55.55:1234
+        ///#EXTINF:-1 group-title=&quot;Music channels&quot;,MTV
+        ///udp://225.55.55.4:1234.
+        /// </summary>
+        internal static string format_specs {
+            get {
+                return ResourceManager.GetString("format_specs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to #EXTM3U url-tvg=&quot;http://www.teleguide.info/download/new3/jtv.zip&quot; m3uautoload=1 cache=500 deinterlace=1 tvg-shift=0
         ///#EXTINF:-1 tvgname=&quot;Первый_канал&quot; tvglogo=&quot;Первый канал&quot; grouptitle=&quot;Каналы ЦЭТВ РТРС&quot; ,Первый канал
         ///http://192.168.1.1:4022/udp/225.77.225.1:5000
@@ -72,6 +111,37 @@ namespace m3uParser.Tests {
         internal static string header_with_parameters {
             get {
                 return ResourceManager.GetString("header_with_parameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #EXTM3U url-tvg=&quot;http://www.teleguide.info/download/new3/xmltv.xml.gz&quot;
+        ///#EXTINF:-1 group-title=&quot;Science&quot;, Discovery
+        ///http://example.com/channel1
+        ///#EXTINF:-1 group-title=&quot;Sport&quot;, Eurosport
+        ///http://example.com/channel2
+        ///#EXTINF:-1 tvg-logo=&quot;Eurosport&quot; tvg-name=&quot;Eurosport&quot; tvg-shift=&quot;+1&quot;,Eurosport +1
+        ///http://example.com/channel3
+        ///#EXTINF:-1 group-title=&quot;Custom&quot; tvg-logo=&quot;https://cdn1.iconfinder.com/data/icons/Primo_Icons/PNG/128x128/video.png&quot;,My Custom channel
+        ///http://example.com/channel4.
+        /// </summary>
+        internal static string iptv_sample {
+            get {
+                return ResourceManager.GetString("iptv_sample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #EXTM3U url-tvg=&quot;http://raw.githubusercontent.com/Twilight0/repo-guide/master/guide-el.xml.gz&quot;
+        ///#EXTINF:-1 group-title=&quot;ΠΑΝΕΛΛΑΔΙΚΑ&quot; tvg-name=&quot;ΕΡΤ1&quot; tvg-logo=&quot;http://greektv.pbworks.com/f/1433976522/ERT1.png&quot;,ERT1
+        ///https://www.youtube.com/watch?v=WY_Zhh9-bI8
+        ///#EXTINF:-1 group-title=&quot;ΠΑΝΕΛΛΑΔΙΚΑ&quot; tvg-name=&quot;ΕΡΤ1&quot; tvg-logo=&quot;http://greektv.pbworks.com/f/1433976522/ERT1.png&quot;,ERT1 WORLDWIDE
+        ///https://www.youtube.com/watch?v=Zx98moCvkpU
+        ///#EXTINF:-1 group-title=&quot;ΠΑΝΕΛΛΑΔΙΚΑ&quot; tvg-name=&quot;ΕΡΤ2&quot; tvg-logo=&quot;http://greektv. [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string sample_paste_bin {
+            get {
+                return ResourceManager.GetString("sample_paste_bin", resourceCulture);
             }
         }
         
