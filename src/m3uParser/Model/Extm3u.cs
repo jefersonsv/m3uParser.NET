@@ -11,6 +11,7 @@ namespace m3uParser.Model
     public class Extm3u
     {
         public string PlayListType { get; set; }
+        public bool HasEndList { get; set; }
         public int? TargetDuration { get; set; }
         public int? Version { get; set; }
         public int? MediaSequence { get; set; }
@@ -78,6 +79,7 @@ namespace m3uParser.Model
                         break;
 
                     case "EXT-X-ENDLIST":
+                        this.HasEndList = true;
                         break;
 
                     default:
